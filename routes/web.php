@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\GuruController;
@@ -12,6 +13,9 @@ use App\Models\Guru;
 use App\Models\Siswa;
 use App\Models\Kelas;
 use App\Models\Pelanggaran;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -37,7 +41,7 @@ Route::post('/register', [AuthController::class, 'toRegister'])->name('to.regist
 Route::post('/logout', [AuthController::class, 'logOut'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', [AuthController::class, 'home'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     //Siswa
     Route::get("siswa", [SiswaController::class, 'index'])->name('siswa');
@@ -53,7 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::post("guru/post", [GuruController::class, 'store'])->name('guru.post');
     Route::get("guru/edit{id}", [GuruController::class, 'edit'])->name('guru.edit');
     Route::put("guru/update", [GuruController::class, 'update'])->name('guru.update');
-    Route::post("guru/delete", [GuruController::class, 'delete'])->name('guru.destroy');
+    Route::post("guru/delete", [GuruController::class, 'delete'])->name('guru.delete');
     
     //Kelas
     Route::get('kelas', [KelasController::class, 'index'])->name('kelas');
@@ -84,4 +88,27 @@ Route::middleware('auth')->group(function () {
     Route::get('/kasus/daftar',[KasusController::class, 'daftar'])->name('kasus.daftar');
     Route::get('/kasus/update/{id}', [KasusController::class, 'update'])->name('kasus.update');
 
+    // //Reset Password
+    // Route::get('/forgot-password', function () {
+    //     return view('auth.forgot-password');
+    // })->middleware('guest')->name('password.request');
+    
+    // Route::post('/forgot-password', function(Request $request) {
+    //     $request->validate(['email' => 'required|email']);
+
+    //     $status = Password::sendResetLink(
+    //         $request->only('email')
+    //     );
+
+    //     return $status === Password::RESET_LINK_SENT
+    //                 ? back()->with(['status' => __($status)])
+    //                 : back()->withErrors(['email' => __($status)]);
+    // })->middleware('guest')->name('password.email');
+
+    // Route::get('/reset-password/{token}', function ( string $token ) {
+    //     return view('auth.reset-password', ['token' => $token]);
+    // })->middleware('guest')->name('password.reset');
+
+
+    // Auth::routes();
 });

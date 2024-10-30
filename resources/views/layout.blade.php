@@ -170,6 +170,13 @@
                 <span class="menu-title">About</span>
               </a>
             </li>
+            {{-- <hr>
+            <li class="nav-item">
+              <a href="{{ route('password.request') }}" class="nav-link">
+                <i class='mdi mdi-key-change menu-icon'></i>
+                <span class="menu-title">Reset Password</span>
+              </a>
+            </li> --}}
           </ul>
         </nav>
         

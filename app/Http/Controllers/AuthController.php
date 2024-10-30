@@ -55,4 +55,9 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
+
+    public function index(){
+        return view('reset.index');
+    }
+
 }

@@ -59,7 +59,7 @@
                               @endif
                             </td>
                             <td>
-                                <form action="{{ route('siswa.delete') }}" method="POST">
+                                <form action="{{ route('siswa.destroy') }}" method="POST">
                                   @csrf
                                   <input type="hidden" name="id" value="{{ $siswa->id }}">
                                   <div class="btn-group">

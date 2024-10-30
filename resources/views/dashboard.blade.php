@@ -19,7 +19,7 @@
           <div class="card card-tale">
             <div class="card-body">
               <p class="mb-4">Jumlah Kelas</p>
-              <p class="fs-30 mb-2">40</p>
+              <p class="fs-30 mb-2">{{$kelas}}</p>
               <p>Kelas</p>
             </div>
           </div>
@@ -28,7 +28,7 @@
           <div class="card card-dark-blue">
             <div class="card-body">
               <p class="mb-4">Jumlah Siswa</p>
-              <p class="fs-30 mb-2">1000</p>
+              <p class="fs-30 mb-2">{{$siswa}}</p>
               <p>Orang</p>
             </div>
           </div>
@@ -39,7 +39,7 @@
           <div class="card card-light-blue">
             <div class="card-body">
               <p class="mb-4">Jumlah Guru</p>
-              <p class="fs-30 mb-2">100</p>
+              <p class="fs-30 mb-2">{{$guru}}</p>
               <p>Orang</p>
             </div>
           </div>
@@ -48,7 +48,7 @@
           <div class="card card-light-danger">
             <div class="card-body">
               <p class="mb-4">Jumlah Pelanggaran</p>
-              <p class="fs-30 mb-2">47033</p>
+              <p class="fs-30 mb-2">{{$pelanggaran}}</p>
               <p>Pelanggaran</p>
             </div>
           </div>
