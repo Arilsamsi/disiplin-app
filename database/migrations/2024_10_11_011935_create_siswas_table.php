@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('tanggalLahir');
             $table->string('jk');
             $table->string('telp');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

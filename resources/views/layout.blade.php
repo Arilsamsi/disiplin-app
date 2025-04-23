@@ -47,8 +47,11 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 
-    <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
   @stack('styles')
   </head>
@@ -87,25 +90,36 @@
               >
                 Selamat Datang, {{ auth()->user()->name }}
               </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                aria-labelledby="profileDropdown"
-              >
-                <a class="dropdown-item">
-                  <i class="ti-settings text-primary"></i> Settings
+              <div class="dropdown-menu dropdown-menu-end navbar-dropdown" aria-labelledby="profileDropdown">
+                <!-- Settings -->
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <i class="ti-settings text-primary me-2"></i> Settings
                 </a>
-                <form class="dropdown-item" action="{{ url('logout') }}" method="POST">
+          
+                <!-- Logout -->
+                <form action="{{ url('logout') }}" method="POST" class="w-100 m-0 p-0">
                   @csrf
-                  <i class="ti-power-off text-primary"></i><button onclick="return confirm('Apakah anda mau logout?')" class="btn" type="submit">Logout</button>
-                </form>
+                  <button 
+                    type="submit" 
+                    class="dropdown-item d-flex align-items-center w-100"
+                    style="background: none; border: none;"
+                    onclick="return confirm('Apakah anda mau logout?')"
+                  >
+                    <i class="ti-power-off text-primary"></i> 
+                    <span>Logout</span>
+                  </button>
+                </form>                
               </div>
             </li>
+          
+            <!-- Optional settings icon -->
             <li class="nav-item nav-settings d-none d-lg-flex">
               <a class="nav-link" href="#">
                 <i class="icon-ellipsis"></i>
               </a>
             </li>
           </ul>
+          
           <button
             class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
             type="button"
@@ -140,12 +154,13 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('guru') }}">
-                <i class="mdi mdi-account-settings menu-icon"></i>
+                {{-- <i class="mdi mdi-account-settings menu-icon"></i> --}}
+                <i class="fa-solid fa-user-tie menu-icon"></i>
                 <span class="menu-title">Guru</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pelanggaran">
+              <a class="nav-link" href="{{ route('pelanggaran') }}">
                 <i class="mdi mdi-alert menu-icon"></i>
                 <span class="menu-title">Pelanggaran</span>
               </a>
@@ -165,7 +180,7 @@
             </li>
             <hr>
             <li class="nav-item">
-              <a class="nav-link" href="about">
+              <a class="nav-link" href="/about">
                 <i class="mdi mdi-account-box menu-icon"></i>
                 <span class="menu-title">About</span>
               </a>
@@ -227,8 +242,12 @@
     <script src="{{ asset('assets/js/jquery.cookie.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <script src="{{ asset('assets/js/typeahead.js') }}"></script>
-  <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script src="{{ asset('assets/js/select2.js') }}"></script>
     <!-- <script src="{{ asset('assets/js/Chart.roundedBarCharts.js') }}"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- End custom js for this page-->
   </body>
 </html>

@@ -56,7 +56,7 @@
                                         </td>
                                         <td>{{$d->catatanPenanganan}}</td>
                                         <td>
-                                            <form action="{{ route('siswa.destroy')}}" method="post">
+                                            <form action="{{ route('kasus.delete', $d->id)}}" method="post">
                                                 @csrf
                                                 <div class="btn-group" role="group" aria-label="Basic example">
                                                     <a href="{{ route('kasus.update', $d->id) }}" class="btn btn-sm btn-warning">Update</a>

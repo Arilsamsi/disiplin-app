@@ -46,7 +46,13 @@
                 </div>
                 <div class="form-group">
                   <label>Foto</label>
-                  <input type="file" name="foto" class="form-control">
+                  @if ($siswa->foto != null)
+                  <img src="{{ asset('storage/images/siswa/' .$siswa->foto) }}" width="100px" style="padding-bottom: 5px;">
+                  @else
+                  <img src="/no_image.png" width="100px" style="padding-bottom: 5px;">
+                  @endif
+                  <input type="hidden" name="old_foto" value="{{ $siswa->foto }}">
+                  <input type="file" name="foto" class="form-control" value="{{ $siswa->foto }}">
                 </div>
                     <button class="btn btn-outline-primary" type="submit">Simpan</button>
                     <button type="reset" class="btn btn-outline-danger">Reset</button>

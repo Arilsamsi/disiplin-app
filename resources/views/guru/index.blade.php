@@ -15,7 +15,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-12">
-              <a href="{{ route('guru.create') }}" class="btn btn-success mb-2 text-white">Tambah Data</a>
+              <a href="{{ route('guru.create') }}" class="btn btn-md btn-outline-primary mb-2">Tambah Data</a>
               
               <div class="table-responsive">
                 <table

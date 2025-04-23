@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -14,9 +15,10 @@ class SiswaController extends Controller
      */
     public function index()
     {
+        $kelas = Kelas::all();
         $siswa = Siswa::simplePaginate(20);
         // dd($siswa);
-        return view('siswa.index', compact('siswa'));
+        return view('siswa.index', compact('siswa', 'kelas'));
     }
 
     /**
@@ -46,8 +48,9 @@ class SiswaController extends Controller
             'foto' => $file->hashName(),
         ]);
 
+        
+        // dd($request->all());
         \Session::flash('success', 'Data Siswa Berhasil ditambahkan');
-
         return redirect()->route('siswa');
     }
 
@@ -115,7 +118,8 @@ class SiswaController extends Controller
     public function destroy(Request $request)
     {
         
-        $siswa = Siswa::find($request->id);
+        $siswa = Siswa::findOrFail($request->id);
+        // dd($siswa);
         
         Storage::disk('public')->delete('/images/siswa'.$siswa->foto);
 

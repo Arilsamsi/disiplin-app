@@ -13,7 +13,9 @@
         </div>
     </div>
 </div>
-
+<div>
+    <a href="{{ route('kelas') }}" class="btn btn-primary mb-2">Kembali</a>
+</div>
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">

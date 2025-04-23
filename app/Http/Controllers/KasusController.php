@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Pelanggaran;
 use App\Models\PelanggaranSiswa;
+use Illuminate\Support\Facades\Storage;
 
 class KasusController extends Controller
 {
@@ -60,5 +61,19 @@ class KasusController extends Controller
 
         return redirect()->route('kasus.daftar');
 
+    }
+
+    public function delete(Request $request)
+    {
+        
+        $data = PelanggaranSiswa::find($request->id);
+        
+        Storage::disk('public')->delete('foto_kasus'.$data->foto);
+
+        $data->delete();
+
+        return redirect()->route('kasus.daftar');
+
+        \Session::flash('success', 'Data Siswa Berhasil dihapus');
     }
 }

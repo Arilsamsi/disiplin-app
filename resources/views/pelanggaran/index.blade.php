@@ -16,7 +16,7 @@
           <div class="row">
             <div class="col-12">
               <div class="table-responsive">
-                <a href="{{ route('pelanggaran.create') }}" class="btn btn-primary mb-2">Tambah Data</a>
+                <a href="{{ route('pelanggaran.create') }}" class="btn btn-md btn-outline-primary mb-2">Tambah Data</a>
                 <table
                   id="example"
                   class="display expandable-table"

@@ -15,7 +15,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-12">
-              <a href="{{ route('siswa.create') }}" class="btn btn-success mb-2 text-white">Tambah Data</a>
+              <a href="{{ route('siswa.create') }}" class="btn btn-md btn-outline-primary mb-2">Tambah Data</a>
               <div class="table-responsive">
                 @if (Session::has('success'))
                 <p class="alert alert-success">{{ Session::get('success') }}</p>
@@ -51,6 +51,7 @@
                             <td>{{ $siswa->tempatLahir }}, {{ $siswa->tanggalLahir }}</td>
                             <td>{{ $siswa->jk }}</td>
                             <td>{{ $siswa->telp }}</td>
+                            <td>{{ $siswa->kelas->nama }}</td>
                             <td>
                               @if ($siswa->foto != null)
                               <img src="{{ asset('storage/images/siswa/'.$siswa->foto) }}" alt="not-found" width="100px" class="rounded-circle">

@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::post("siswa/post", [SiswaController::class, 'store'])->name('siswa.post');
     Route::get("siswa/edit{id}", [SiswaController::class, 'edit'])->name('siswa.edit');
     Route::put("siswa/update", [SiswaController::class, 'update'])->name('siswa.update');
-    Route::post("siswa/destroy", [SiswaController::class, 'destroy'])->name('siswa.destroy');
+    Route::post("/siswa/destroy", [SiswaController::class, 'destroy'])->name('siswa.destroy');
     
     //Guru
     Route::get("guru", [GuruController::class, 'index'])->name('guru');
@@ -57,7 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::post("guru/post", [GuruController::class, 'store'])->name('guru.post');
     Route::get("guru/edit{id}", [GuruController::class, 'edit'])->name('guru.edit');
     Route::put("guru/update", [GuruController::class, 'update'])->name('guru.update');
-    Route::post("guru/delete", [GuruController::class, 'delete'])->name('guru.delete');
+    Route::post("/guru/delete", [GuruController::class, 'delete'])->name('guru.delete');
     
     //Kelas
     Route::get('kelas', [KelasController::class, 'index'])->name('kelas');
@@ -87,6 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/kasus/storeUpdate', [KasusController::class, 'storeUpdate'])->name('kasus.storeUpdate');
     Route::get('/kasus/daftar',[KasusController::class, 'daftar'])->name('kasus.daftar');
     Route::get('/kasus/update/{id}', [KasusController::class, 'update'])->name('kasus.update');
+    Route::post('/kasus/delete', [KasusController::class, 'delete'])->name('kasus.delete');
 
     // //Reset Password
     // Route::get('/forgot-password', function () {
